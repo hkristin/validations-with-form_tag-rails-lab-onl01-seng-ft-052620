@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
+
   def edit
     @post = Post.find(params[:id])
   end
@@ -16,13 +16,14 @@ class PostsController < ApplicationController
     if @post.valid?
       @post.save
       redirect_to post_path(@post)
-    else 
+    else
       render :new
     end
   end
-  
+
   def update
     @post = Post.find(params[:id])
+    binding.pry
     if @post.valid?
       @post.update(post_params)
       redirect_to post_path(@post)
